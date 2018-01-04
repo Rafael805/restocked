@@ -7,7 +7,7 @@ const logo = require('../assets/images/barber.png');
 
 export default class LoginScreen extends Component {
    static navigationOptions = {
-      title: 'Login',
+      title: 'Account',
    };
 
    render() {

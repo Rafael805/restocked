@@ -1,61 +1,52 @@
 import React from 'react';
-import { Platform } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { TabNavigator, TabBarBottom } from 'react-navigation';
-
-import Colors from '../constants/Colors';
-
+import { Text } from 'react-native';
+import { TabNavigator } from 'react-navigation';
+import { Footer, FooterTab, Button, Icon } from 'native-base';
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
-import SuppliesScreen from '../screens/SuppliesScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import FavoritesScreen from '../screens/FavoritesScreen';
 
-export default TabNavigator({
-   Home: {
-      screen: HomeScreen,
-   },
-   Supplies: {
-      screen: SuppliesScreen,
-   },
-   Settings: {
-      screen: SettingsScreen,
-   },
-   Login: {
-      screen: LoginScreen,
-   }
+const MainTabNavigator = TabNavigator({
+   Home: { screen: HomeScreen },
+   Favorites: { screen: FavoritesScreen },
+   Account: { screen: LoginScreen }
    },
    {
-      navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused }) => {
-        const { routeName } = navigation.state;
-        let iconName;
-        switch (routeName) {
-          case 'Home':
-            iconName =
-              Platform.OS === 'ios'
-                ? `ios-information-circle${focused ? '' : '-outline'}`
-                : 'md-information-circle';
-            break;
-          case 'Supplies':
-            iconName = Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link';
-            break;
-          case 'Settings':
-            iconName =
-              Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options';
-        }
-        return (
-          <Ionicons
-            name={iconName}
-            size={28}
-            style={{ marginBottom: -3 }}
-            color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
-          />
-        );
-      },
-    }),
-    tabBarComponent: TabBarBottom,
-    tabBarPosition: 'bottom',
-    animationEnabled: false,
-    swipeEnabled: false,
-  }
-);
+      tabBarPosition: 'bottom',
+      tabBarComponent: props => {
+         return (
+            <Footer>
+               <FooterTab>
+                  <Button
+                     vertical
+                     active={props.navigationState.index === 0}
+                     onPress={() => props.navigation.navigate('Home')}
+                  >
+                     <Icon ios='ios-home' android="md-home" />
+                     <Text>Home</Text>
+                  </Button>
+
+                  <Button
+                     vertical
+                     active={props.navigationState.index === 1}
+                     onPress={() => props.navigation.navigate('Favorites')}
+                  >
+                     <Icon ios='ios-heart' android="md-heart" />
+                     <Text>Favorites</Text>
+                  </Button>
+
+                  <Button
+                     vertical
+                     active={props.navigationState.index === 2}
+                     onPress={() => props.navigation.navigate('Account')}
+                  >
+                     <Icon ios='ios-person' android="md-person" />
+                     <Text>Account</Text>
+                  </Button>
+               </FooterTab>
+            </Footer>
+         );
+      }
+   });
+
+export default MainTabNavigator;

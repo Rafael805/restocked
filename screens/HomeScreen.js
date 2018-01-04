@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Container, Thumbnail, Body, Content, List, ListItem, Text } from 'native-base';
+import { View, Button, Text } from 'react-native';
+import { Container, Thumbnail, Body, Content, List, ListItem } from 'native-base';
 import SearchHeader from '../components/SearchHeader';
 
 export default class HomeScreen extends Component {
    static navigationOptions = {
-      drawerLabel: 'Home',
+      title: 'Home',
    };
 
    render() {
@@ -15,14 +16,13 @@ export default class HomeScreen extends Component {
              <List style={{ backgroundColor: '#FFF' }}>
                 <ListItem>
                    <Text>
-                      RESTOCK TODAY! 
+                      RESTOCK TODAY!
                    </Text>
                 </ListItem>
-                <ListItem>
+                <ListItem onPress={() => console.log('WOOOOAH')}>
                   <Thumbnail square size={80} source={{ uri: 'https://www.bowmanbeauty.com/wp-content/uploads/2015/06/AN10061.jpg' }} />
                   <Body>
                     <Text>Clippers</Text>
-                    <Text note>Professional clippers for fresh fades</Text>
                   </Body>
                 </ListItem>
 
@@ -30,15 +30,13 @@ export default class HomeScreen extends Component {
                   <Thumbnail square size={80} source={{ uri: 'https://www.beautymegashop.it/wp-content/uploads/2016/02/d.jpg' }} />
                   <Body>
                     <Text>Trimmers</Text>
-                    <Text note>Professional trimmers for crisp lineups</Text>
                   </Body>
                </ListItem>
 
                <ListItem>
                   <Thumbnail square size={80} source={{ uri: 'https://www.bowmanbeauty.com/wp-content/uploads/2015/06/AN3060.jpg' }} />
                   <Body>
-                    <Text>Blades</Text>
-                    <Text note>Replacement blades for your clippers and trimmers</Text>
+                     <Text>Blades</Text>
                   </Body>
                </ListItem>
 
@@ -50,7 +48,6 @@ export default class HomeScreen extends Component {
                   />
                   <Body>
                     <Text>Shaving</Text>
-                    <Text note>Achieve the perfect shave</Text>
                   </Body>
                </ListItem>
 
@@ -64,10 +61,6 @@ export default class HomeScreen extends Component {
                     <Text>
                        Cutting Capes
                     </Text>
-                    <Text note>
-                       Soft, water-repellent and durable material, keeps your client's
-                       clothes dry and clean.
-                    </Text>
                   </Body>
                </ListItem>
 
@@ -78,8 +71,7 @@ export default class HomeScreen extends Component {
                      source={{ uri: 'https://www.mdbarber.com/v/vspfiles/photos/MD0018B-3.jpg' }}
                   />
                   <Body>
-                    <Text>Clipper Accessories</Text>
-                    <Text note>Customize your tools to your liking</Text>
+                    <Text>Clipper Accesories</Text>
                   </Body>
                </ListItem>
              </List>
