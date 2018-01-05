@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Image, View, Text } from 'react-native';
 
 export default class FavoritesScreen extends Component {
    static navigationOptions = {
       title: 'Favorites',
    };
-   ''
+
    render() {
       return (
          <View>
+            <Image source={{ uri : 'http://glch.org.au/wp-content/uploads/2015/09/Coming-Soon-1024x1024.jpg' }} />
             <Text>
-               In The Favorites Screen
+               Favorites Tab Coming Soon!
             </Text>
          </View>
       );

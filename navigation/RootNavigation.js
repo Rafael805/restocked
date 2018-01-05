@@ -3,21 +3,18 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
+import ClippersType from '../screens/Supplies/Clippers/ClippersType';
+import AllClippers from '../screens/Supplies/Clippers/AllClippers';
+import AndisSupplies from '../screens/Supplies/Clippers/AndisSupplies';
+
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const RootStackNavigator = StackNavigator({
-   Main: {
-      screen: MainTabNavigator,
-   },
-   },
-   {
-      navigationOptions: () => ({
-         headerTitleStyle: {
-            fontWeight: 'normal',
-         },
-      }),
-   }
-);
+   Main: { screen: MainTabNavigator },
+   ClippersType: { screen: ClippersType },
+   AllClippers: { screen: AllClippers },
+   AndisSupplies: { screen: AndisSupplies }
+});
 
 export default class RootNavigator extends React.Component {
    componentDidMount() {

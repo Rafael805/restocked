@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, Button, Text } from 'react-native';
-import { Container, Thumbnail, Body, Content, List, ListItem } from 'native-base';
-import SearchHeader from '../components/SearchHeader';
+import { Text } from 'react-native';
+import { Container, Thumbnail, Body, Content, List, ListItem, Right, Icon } from 'native-base';
+import SearchHeader from '../../components/SearchHeader';
 
-export default class HomeScreen extends Component {
+export default class SuppliesScreen extends Component {
    static navigationOptions = {
-      title: 'Home',
+      title: 'Supplies',
    };
 
    render() {
@@ -19,11 +19,14 @@ export default class HomeScreen extends Component {
                       RESTOCK TODAY!
                    </Text>
                 </ListItem>
-                <ListItem onPress={() => console.log('WOOOOAH')}>
+                <ListItem onPress={() => this.props.navigation.navigate('ClippersType')}>
                   <Thumbnail square size={80} source={{ uri: 'https://www.bowmanbeauty.com/wp-content/uploads/2015/06/AN10061.jpg' }} />
                   <Body>
                     <Text>Clippers</Text>
                   </Body>
+                  <Right>
+                     <Icon name="arrow-forward" />
+                  </Right>
                 </ListItem>
 
                <ListItem>
@@ -31,6 +34,9 @@ export default class HomeScreen extends Component {
                   <Body>
                     <Text>Trimmers</Text>
                   </Body>
+                  <Right>
+                     <Icon name="arrow-forward" />
+                  </Right>
                </ListItem>
 
                <ListItem>
@@ -38,6 +44,9 @@ export default class HomeScreen extends Component {
                   <Body>
                      <Text>Blades</Text>
                   </Body>
+                  <Right>
+                     <Icon name="arrow-forward" />
+                  </Right>
                </ListItem>
 
                <ListItem>
@@ -49,6 +58,9 @@ export default class HomeScreen extends Component {
                   <Body>
                     <Text>Shaving</Text>
                   </Body>
+                  <Right>
+                     <Icon name="arrow-forward" />
+                  </Right>
                </ListItem>
 
                <ListItem>
@@ -62,6 +74,9 @@ export default class HomeScreen extends Component {
                        Cutting Capes
                     </Text>
                   </Body>
+                  <Right>
+                     <Icon name="arrow-forward" />
+                  </Right>
                </ListItem>
 
                <ListItem>
@@ -73,6 +88,9 @@ export default class HomeScreen extends Component {
                   <Body>
                     <Text>Clipper Accesories</Text>
                   </Body>
+                  <Right>
+                     <Icon name="arrow-forward" />
+                  </Right>
                </ListItem>
              </List>
            </Content>
